@@ -84,7 +84,7 @@ def build_solution(row, group):
         for col in range(n):
             a = (row * n) + col
             matches = zip(list([pos[a]]) * len(group), group)
-            used_positions = map(lambda e: is_attacking(e[0], e[1]), matches)
+            used_positions = map(lambda x: is_attacking(x[0], x[1]), matches)
             group.append(pos[a].copy())
             if not any(used_positions):
                 build_solution(row + 1, group)
@@ -95,7 +95,7 @@ def get_solutions():
     """Gets the solutions for the given chessboard size.
     """
     global pos, n
-    pos = list(map(lambda e: [e // n, e % n], range(n ** 2)))
+    pos = list(map(lambda x: [x // n, x % n], range(n ** 2)))
     a = 0
     group = []
     build_solution(a, group)
