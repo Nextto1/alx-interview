@@ -17,7 +17,7 @@ def island_perimeter(grid):
                 continue
             edges = (
                 k == 0 or (len(grid[k - 1]) > e and grid[k - 1][e] == 0),
-                e == l - 1 or (m > e + 1 and row[e + 1] == 0),
+                e == l - 1 or (l > e + 1 and row[e + 1] == 0),
                 k == n - 1 or (len(grid[k + 1]) > e and grid[k + 1][e] == 0),
                 e == 0 or row[e - 1] == 0,
             )
